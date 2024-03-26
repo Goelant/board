@@ -1,0 +1,40 @@
+.home-offline-hero {
+  max-width: 200rem;
+}
+.channel-root--home .home-offline-hero {
+  min-height: 46.8rem;
+}
+@media screen and (max-width: 768px) {
+  .channel-root--home .home-offline-hero {
+    min-height: 57rem;
+  }
+}
+.home-carousel-info {
+  max-width: 100%;
+  min-height: 20rem;
+  transition: transform 0.3s ease 0s;
+  width: 32rem;
+}
+.home-carousel-info--subtitle {
+  -webkit-line-clamp: 3;
+  -moz-box-orient: vertical;
+  display: -webkit-box;
+  overflow: hidden;
+}
+@media (max-width: 767px) {
+  .home-carousel-info {
+    order: 1;
+    width: 46.8rem;
+  }
+}
+.channel-status-info {
+  color: var(--color-text-overlay);
+  padding: 1px 7px;
+}
+.channel-status-info--offline, .channel-status-info--private {
+  background: var(--color-text-base);
+  color: var(--color-background-base);
+}
+.home-notify-cta {
+  min-height: 4rem;
+}

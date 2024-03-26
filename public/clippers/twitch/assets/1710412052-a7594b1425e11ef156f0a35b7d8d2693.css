@@ -1,0 +1,24 @@
+.preview-card-carousel, .preview-card-carousel__child-container {
+  transform-style: preserve-3d;
+}
+.preview-card-carousel__nav {
+  width: 0px;
+}
+.preview-card-carousel__body, .preview-card-carousel__nav {
+  transition-duration: 0.3s;
+}
+.preview-card-carousel__button {
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 5px 20px 0px;
+  transition-duration: 0.1s;
+  transition-property: opacity, transform;
+  transition-timing-function: ease-out;
+}
+.preview-card-carousel__button--next {
+  margin-left: -3rem;
+}
+.preview-card-carousel__button--next:hover {
+  transform: scale(1.05);
+}
+.preview-card-carousel__button--next:active {
+  transform: scale(1);
+}

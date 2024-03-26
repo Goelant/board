@@ -1,0 +1,243 @@
+body {
+  background-color: var(--color-background-body);
+  font-family: var(--font-base);
+  overflow: hidden;
+}
+[data-simplebar] {
+  overflow: hidden;
+  position: relative;
+  z-index: 0;
+}
+[data-simplebar="init"] {
+  display: flex;
+}
+.simplebar-scroll-content {
+  box-sizing: content-box;
+  min-width: 100%;
+  overflow: hidden scroll;
+}
+.simplebar-content {
+  box-sizing: border-box;
+  min-height: 100%;
+  overflow: scroll hidden;
+}
+.scrollable-area {
+  height: 100%;
+  position: relative;
+}
+.scrollable-area .simplebar-scroll-content {
+  max-height: inherit !important;
+}
+.root, body, html {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  position: relative;
+  width: 100%;
+}
+.channel-root {
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0.3s;
+  transition-property: background-color, background-image;
+}
+.channel-root__player {
+  position: absolute;
+  width: 100%;
+}
+.channel-root__player, .channel-root__watch-party-player {
+  max-height: calc(-16rem + 100vh);
+}
+.channel-root--unanimated + .persistent-player {
+  transition: all 0s ease 0s !important;
+}
+.channel-root + .persistent-player {
+  width: 100%;
+}
+.channel-root--home {
+  background-position: center 25px;
+}
+.channel-root--home .channel-root__player {
+  max-height: 100%;
+  min-height: 46.8rem;
+}
+.channel-root--home .channel-root__player--offline {
+  width: 100%;
+}
+.channel-root__info {
+  z-index: 2;
+}
+.channel-root__info .channel-info-content {
+  background-color: var(--color-background-body);
+}
+@media screen and (max-width: 768px) {
+  .channel-root--home .channel-info-content {
+    margin-right: 0px;
+    min-width: 100%;
+  }
+}
+.channel-page__video-player {
+  max-height: calc(-16rem + 100vh);
+  overflow: hidden;
+}
+.channel-page__video-player--home-carousel {
+  align-items: center;
+  background: rgb(0, 0, 0);
+  display: flex;
+  height: 30rem;
+  z-index: 10;
+}
+.video-ref {
+  height: 100%;
+  width: 100%;
+}
+.video-player {
+  background: rgb(0, 0, 0);
+}
+.video-player__container {
+  background: rgb(0, 0, 0);
+}
+.video-player__container:fullscreen {
+  max-height: 100% !important;
+}
+.video-player__container--resize-calc {
+  max-height: calc(-16rem + 100vh);
+}
+.video-player video {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.resize-detector {
+  inset: 0px;
+  overflow: hidden;
+  position: absolute;
+  visibility: hidden;
+  z-index: -1;
+}
+.resize-detector__grow, .resize-detector__shrink {
+  left: 0px;
+  position: absolute;
+  top: 0px;
+  transition: all 0s ease 0s;
+}
+.resize-detector__shrink {
+  height: 200%;
+  width: 200%;
+}
+.stream-display-ad__wrapper {
+  position: absolute;
+  transition: visibility 0.25s ease 0s, opacity 0.25s ease-in-out 0s;
+  width: 100%;
+}
+.stream-display-ad__wrapper_squeezeback {
+  height: 100%;
+}
+.stream-display-ad__wrapper-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.stream-display-ad__container_skyscraper, .stream-display-ad__container_squeezeback {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.stream-display-ad__transform-container_lower-third, .stream-display-ad__transform-container_skyscraper, .stream-display-ad__transform-container_squeezeback {
+  left: 50%;
+  position: absolute;
+  top: 0px;
+  transform: translateX(-50%);
+}
+.stream-display-ad__frame_pushdown, .stream-display-ad__frame_squeezeback {
+  left: 50%;
+  position: absolute;
+  top: 0px;
+  transform: translateX(-50%);
+}
+.player-controls {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0px, rgba(0, 0, 0, 0.35) 60%, transparent);
+}
+.player-controls__extensions-taskbar-group, .player-controls__left-control-group, .player-controls__right-control-group {
+  flex-basis: 0px;
+}
+.vod-seekbar-time-labels {
+  user-select: none;
+}
+.seekbar-interaction-area {
+  cursor: pointer;
+}
+.seekbar-bar {
+  background: rgba(255, 255, 255, 0.35);
+  height: 0.4rem;
+}
+.seekbar-segment {
+  height: 0.4rem;
+}
+.volume-slider__slider-container {
+  height: 3rem;
+  width: 11rem;
+}
+.celebration__overlay {
+  background-color: transparent;
+  pointer-events: none;
+}
+.top-bar {
+  background: linear-gradient(rgba(0, 0, 0, 0.8) 0px, rgba(0, 0, 0, 0.35) 60%, transparent);
+  margin-bottom: 5.5rem;
+  padding: 2rem;
+  pointer-events: none;
+}
+.top-bar--pointer-enabled {
+  pointer-events: auto;
+}
+.disclosure-tool {
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+}
+.dt-attach-top-right {
+  margin-right: 4.5rem;
+}
+.disclosure-card {
+  background: linear-gradient(rgba(0, 0, 0, 0.8) 0px, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0.8));
+}
+.home {
+  background-position: 50% center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transition: background-image 0.3s ease 0.3s;
+}
+.home__scrollable-content {
+  overflow: visible;
+}
+.home-header-sticky {
+  left: 0px;
+  max-width: 200rem;
+  position: sticky;
+  top: 0px;
+  width: calc(100% - 8rem);
+  z-index: 2;
+}
+.home-header-sticky, .home-header-sticky__inner, .home-header-sticky__wrapper {
+  background: var(--color-background-body);
+}
+.home-video {
+  max-width: 533px;
+  min-height: 30rem;
+}
+.home-video__wrapper {
+  max-width: 70rem;
+}
+.home-video__next {
+  z-index: 11;
+}
+.home__lower-content {
+  max-width: 200rem;
+  min-height: 60vh;
+}
+@media screen and (max-width: 768px) {
+  .home-header-sticky {
+    margin-right: 0px;
+  }
+}

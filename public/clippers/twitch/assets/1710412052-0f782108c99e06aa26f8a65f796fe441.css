@@ -1,0 +1,18 @@
+.game-card__image {
+  background: rgba(173, 173, 184, 0.22);
+}
+.tw-root--theme-dark .game-card__image {
+  background: rgba(83, 83, 95, 0.38);
+}
+.game-card__link, .tw-root--theme-light .game-card__title {
+  color: rgb(14, 14, 16);
+}
+.tw-root--theme-dark .game-card__link {
+  color: rgb(239, 239, 241);
+}
+.game-card__link:hover {
+  text-decoration: none;
+}
+.video-preview-card-placeholder__avatar-circle {
+  height: 40px;
+}

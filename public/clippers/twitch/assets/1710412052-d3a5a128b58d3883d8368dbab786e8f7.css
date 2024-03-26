@@ -1,0 +1,98 @@
+.video-ref {
+  height: 100%;
+  width: 100%;
+}
+.video-player {
+  background: rgb(0, 0, 0);
+}
+.video-player__container {
+  background: rgb(0, 0, 0);
+}
+.video-player__container:fullscreen {
+  max-height: 100% !important;
+}
+.video-player__container--resize-calc {
+  max-height: calc(-16rem + 100vh);
+}
+.video-player video {
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+.stream-display-ad__wrapper {
+  position: absolute;
+  transition: visibility 0.25s ease 0s, opacity 0.25s ease-in-out 0s;
+  width: 100%;
+}
+.stream-display-ad__wrapper_squeezeback {
+  height: 100%;
+}
+.stream-display-ad__wrapper-hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+.stream-display-ad__container_skyscraper, .stream-display-ad__container_squeezeback {
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.stream-display-ad__transform-container_lower-third, .stream-display-ad__transform-container_skyscraper, .stream-display-ad__transform-container_squeezeback {
+  left: 50%;
+  position: absolute;
+  top: 0px;
+  transform: translateX(-50%);
+}
+.stream-display-ad__frame_pushdown, .stream-display-ad__frame_squeezeback {
+  left: 50%;
+  position: absolute;
+  top: 0px;
+  transform: translateX(-50%);
+}
+.player-controls {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.8) 0px, rgba(0, 0, 0, 0.35) 60%, transparent);
+}
+.player-controls__extensions-taskbar-group, .player-controls__left-control-group, .player-controls__right-control-group {
+  flex-basis: 0px;
+}
+.vod-seekbar-time-labels {
+  user-select: none;
+}
+.seekbar-interaction-area {
+  cursor: pointer;
+}
+.seekbar-bar {
+  background: rgba(255, 255, 255, 0.35);
+  height: 0.4rem;
+}
+.seekbar-segment {
+  height: 0.4rem;
+}
+.volume-slider__slider-container {
+  height: 3rem;
+  width: 11rem;
+}
+.celebration__overlay {
+  background-color: transparent;
+  pointer-events: none;
+}
+.top-bar {
+  background: linear-gradient(rgba(0, 0, 0, 0.8) 0px, rgba(0, 0, 0, 0.35) 60%, transparent);
+  margin-bottom: 5.5rem;
+  padding: 2rem;
+  pointer-events: none;
+}
+.top-bar--pointer-enabled {
+  pointer-events: auto;
+}
+.disclosure-tool {
+  margin-bottom: 1.5rem;
+  margin-left: 1.5rem;
+  margin-top: 1rem;
+}
+.dt-attach-top-right {
+  margin-right: 4.5rem;
+}
+.disclosure-card {
+  background: linear-gradient(rgba(0, 0, 0, 0.8) 0px, rgba(0, 0, 0, 0.8) 60%, rgba(0, 0, 0, 0.8));
+}
