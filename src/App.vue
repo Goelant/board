@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import clippers from './components/clippers.vue';
+import { onMounted } from 'vue';
 defineProps(
   {
     msg: {
@@ -7,20 +7,31 @@ defineProps(
     default: 'pyratt'
   }
 })
+
+onMounted(() => {
+  console.log('coucou')
+  let h1 = document.querySelectorAll('h1');
+  h1.forEach((element:HTMLElement, index) => {
+      console.log(index)
+      element.style.top=90*index + 'px'
+  })
+})
+
 </script>
 
 <template>
   <div id="container">
 
-    <div id="left">
-      <h1>pyratt</h1>
+    <div id="top">
+      <div id="top-container">
+        <h1 style='z-index: 0;'>pyratt</h1>
+        <h1 style='z-index: 2;'>pyratt</h1>
+        <h1 style='z-index: 1;'>pyratt</h1>
+      </div>
     </div>
 
   <div id="right">
     <div id="clippers">
-      <clippers src="@/../clippers/twitter/index.html" link="https://twitter.com/pyratt_" height='1000' width='600'  transform="rotate(-0.01turn) scale(0.8)" />
-      <clippers src="@/../clippers/mastodon/index.html" link="https://pyratt.social" height='400' width='700' transform="rotate(-0.02turn) scale(0.8)" left="300px"/>
-      <clippers src="@/../clippers/twitch/index.html"  link="https://lakave.live/tv" height='500' width='800' transform="rotate(0.03turn) scale(0.8)" left="280px"/>
     </div>
     
   </div>
@@ -30,9 +41,9 @@ defineProps(
 
 <style>
 @font-face {
-  font-family: "SketchG";
+  font-family: "Antology";
   src:
-    url("./assets/fonts/titles/sketch_gothic_school/Sketch Gothic School.ttf") format("truetype");
+    url("./assets/fonts/titles/antology/Antology.ttf") format("truetype");
 }
 
 :root {
@@ -50,43 +61,38 @@ body {
 #container {
   width:100vw;
   height: 100vh;
-  background: url('./assets/bg.jpeg');
+  background: url('./assets/bg.jpeg') repeat;
+  background-size: contain;
   top: 0;
   position: absolute;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-#left {
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-items: center;
-  width: 38vw;
-  height: 100vh;
+
+#top {
+  position: absolute;
+  top: 2vw;
+  width: 805px;
+  height: 200px;
+  border-radius: 16px;
+  border: 4px solid rgb(6, 28, 1);
+  overflow: hidden;
+  box-shadow: 6px 6px rgb(6, 28, 1), 10px 10px rgb(6, 28, 1);
 }
-#right {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+
+#top-container {
+  position: relative;
+  top: -32px;
 }
+
 h1 {
   color: var(--accent);
-  font-size: 10rem;
-  font-family: 'SketchG', serif;
+  font-size: 17rem;
+  font-family: 'Antology', serif;
   margin: 0;
-  line-height: 14rem;
-}
-#clippers {
-  transform: scale(0.8);
-}
-#bg {
   position: absolute;
-  top: -50px;
-}
-#bg {
-  display: inline-block;
+  line-height: 7rem;
+  text-shadow: 2px 2px 1px rgb(238, 230, 201), -2px -2px 1px white;
 }
 </style>
