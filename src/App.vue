@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
+
+declare var Twitch: any;
+
 let matrixCopied = ref(false)
-declare let Twitch: Object
 function redirect(url:string, type: string) {
   window.open(url, type)
 }
