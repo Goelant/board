@@ -22,7 +22,7 @@ function matrixCopy(content:string) {
 onMounted(() => {
   // Get URL for twitch integration
   host.value = window.location.hostname
-
+  console.log(window.innerWidth)
   if (window.innerWidth < 650) {
     console.log(1-(0.2 + Math.exp(parseFloat(`0.`+window.innerWidth))))
     let top = document.getElementById('top');
@@ -44,14 +44,14 @@ onMounted(() => {
       </filter></defs><rect width="2000" height="2000" fill="transparent"></rect><rect width="2000" height="2000" fill="#202124" filter="url(#nnnoise-filter)"></rect>
     </svg>
 
-  <RouterLink tag="div" to="/" id="top" >
+  <div tag="div" to="/" id="top" @click="redirect('/', '_self')" >
     <div id="top-container">
       <h1 style='z-index: 1; top: 0px;'>pyratt</h1>
       <h1 style='z-index: 3; top: 90px;'>pyratt</h1>
       <h1 style='z-index: 2; top: 180px;'>pyratt</h1>
     </div>
     <img id='grid-image' src="./assets/grid.png" />
-  </RouterLink>
+  </div>
   <div id="left-right-container">
 
     <div id="left">
@@ -161,7 +161,7 @@ body {
 }
 
 #bg1 {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -170,7 +170,7 @@ body {
 }
 
 #bg2 {
-  position: absolute;
+  position: fixed;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -180,7 +180,7 @@ body {
 }
 
 #bg3 {
-  position: absolute;
+  position: fixed;
 }
 
 .c-te__chat{
@@ -625,10 +625,13 @@ h2 {
     font-size: 4rem;
   }
   #top {
-    top: 0vh;
+    top: 1vh;
   }
   #right #grid-image-bg {
     top: 200px;
+  }
+  #content {
+    overflow: hidden;
   }
 }
 
