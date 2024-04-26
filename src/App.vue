@@ -3,11 +3,14 @@ import { ref, onMounted } from 'vue';
 
 declare var Twitch: any;
 
+// VARIABLES
 let matrixCopied = ref(false)
+let host = ref('')
+
 function redirect(url:string, type: string) {
   window.open(url, type)
 }
-type Twitch = (name: string) => void
+
 function matrixCopy(content:string) {
   matrixCopied.value = true
   navigator.clipboard.writeText(content);
@@ -17,25 +20,14 @@ function matrixCopy(content:string) {
 }
 
 onMounted(() => {
-  console.log('updated')
+  // Get URL for twitch integration
+  host.value = window.location.hostname
+
   if (window.innerWidth < 650) {
     console.log(1-(0.2 + Math.exp(parseFloat(`0.`+window.innerWidth))))
     let top = document.getElementById('top');
     top ? top.style.scale = `${1-(1.9 - Math.exp(parseFloat(`0.`+window.innerWidth)))}` : null;
   }
-
-  var s = document.createElement("script");
-  s.type = "text/javascript";
-  s.src = "https://embed.twitch.tv/embed/v1.js";
-  document.body.appendChild(s);
-
-  new Twitch.Embed("twitch-embed", {
-      width: 854,
-      height: 480,
-      channel: "lakavelive",
-      // Only needed if this page is going to be embedded on other websites
-      parent: ["localhost", "pyratt.sh"]
-    });
 });
 </script>
 
@@ -67,7 +59,7 @@ onMounted(() => {
         <div id="twitch" >
           <iframe
               id='twitch-iframe'
-              src="https://player.twitch.tv/?channel=lakavelive&parent=localhost&muted=true"
+              :src="'https://player.twitch.tv/?channel=lakavelive&parent='+ host + '&muted=true'"
               allowfullscreen>
           </iframe>
         </div>
@@ -234,7 +226,7 @@ body {
   opacity: .75;
 }
 #top:hover h1:nth-child(2) {
-  color: rgb(6, 28, 1)  !important;
+  color: var(--dark)  !important;
 }
 
 /* Position du pyratt à l'interieur */
