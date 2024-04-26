@@ -538,6 +538,7 @@ h2 {
     height: 100%;
     position: absolute;
     display: inherit;
+    z-index: -1;
 }
   #left-overlay:before {
     content: "" !important;
