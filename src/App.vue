@@ -1,20 +1,18 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue';
 import './assets/scripts/twitch-embed-v1.js';
-let matrixCopied = ref(0)
+let matrixCopied = ref(false)
 
 function redirect(url:URL, type: string) {
   window.open(url, type)
 }
 
 function matrixCopy(content:string) {
-  console.log('mutate')
-  matrixCopied = 0;
+  matrixCopied.value = true
   navigator.clipboard.writeText(content);
   setTimeout(() => {
-    matrixCopied = 1;
-    console.log('mutate')
-  }, 600);
+    matrixCopied.value = false;
+  }, 1500);
 }
 
 onMounted(() => {
@@ -81,7 +79,7 @@ onMounted(() => {
           />
         </svg>
       </div>
-      <div id="matrix" :class='{matrixCopied: copied}' @click="matrixCopy('@rouge-gorge:matrix.org')">
+      <div id="matrix" :class='{copied: matrixCopied }' @click="matrixCopy('@rouge-gorge:matrix.org')">
         <!-- m icon by Free Icons (https://free-icons.github.io/free-icons/) -->
         <svg v-if='!matrixCopied' xmlns="http://www.w3.org/2000/svg" height="1em" fill="currentColor" viewBox="0 0 512 512">
           <path
@@ -97,20 +95,21 @@ onMounted(() => {
 
   <div id="right">
     <div id="clipper1" @click="redirect('https://twitter.com/pyratt_', 'blank')">
-      <h2>TWITTER <span style='font-family: Arial, Helvetica, sans-serif'>{{ matrixCopied }}</span></h2>
+      <h2>TWITTER</h2>
+      <div class='clipper-image-twitter'></div>
       <div id='grid-image-bg'></div>
     </div>
-    <div id="clipper2" @click="redirect('https://instagram.com/pyratt.sh', 'blank')">
+    <!-- <div id="clipper2" @click="redirect('https://instagram.com/pyratt.sh', 'blank')">
       <h2>INSTAGRAM</h2>
       <div id='grid-image-bg'></div>
-    </div>
+    </div> -->
     <div id="clipper3" @click="redirect('https://lakave.live', 'blank')">
       <h2>LAKAVELIVE</h2>
+      <div class='clipper-image-lakavelive'></div>
       <div id='grid-image-bg'></div>
     </div>
   </div>
-
-</div>
+  </div>
 </template>
 
 <style>
@@ -274,6 +273,9 @@ h2 {
 
 .copied {
   width: 150px !important;
+  background-color: var(--white) !important;
+  color: var(--dark) !important;;
+  transition: ease-out 0.2s !important;;
 }
 
 .opacity-invisible {
@@ -367,6 +369,7 @@ h2 {
   right: 0;
   z-index: 1;
 }
+
 #dots:before {
   content: "" !important;
   position: absolute;
@@ -409,6 +412,8 @@ h2 {
 
 #matrix-text {
   font-size: 30px !important;
+  text-wrap: stable;
+  white-space: nowrap;
 }
 
 #right {
@@ -463,7 +468,6 @@ h2 {
   z-index: 1;
 }
 
-
 #grid-image-bg {
   position: absolute;
   width: 2000px;
@@ -473,4 +477,5 @@ h2 {
   opacity: .5;
   z-index: -1;
 }
+
 </style>
