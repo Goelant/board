@@ -499,8 +499,9 @@ h2 {
   #left,
   #right {
     width: calc(100vw - 20px);
-    border-left: 10px solid black;
+    border-left: 10px solid var(--dark);
     height: auto;
+    top: 22vh;
   }
   #twitch-container:before {
     content: "" !important;
@@ -570,7 +571,7 @@ h2 {
   }
   #right {
     border-top: 0;
-    border-right: 10px solid black;
+    border-right: 10px solid var(--dark);
   }
   #right-overlay {
     width: 100%;
@@ -621,6 +622,13 @@ h2 {
     top: 5px;
     left: 0;
     margin: 0;
+    font-size: 4rem;
+  }
+  #top {
+    top: 0vh;
+  }
+  #right #grid-image-bg {
+    top: 200px;
   }
 }
 
