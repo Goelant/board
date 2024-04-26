@@ -625,7 +625,7 @@ h2 {
     font-size: 4rem;
   }
   #top {
-    top: 1vh;
+    top: 0vh;
   }
   #right #grid-image-bg {
     top: 200px;
