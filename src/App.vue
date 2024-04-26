@@ -34,7 +34,7 @@ onMounted(() => {
       height: 480,
       channel: "lakavelive",
       // Only needed if this page is going to be embedded on other websites
-      parent: ["embed.example.com", "othersite.example.com"]
+      parent: ["localhost", "pyratt.sh"]
     });
 });
 </script>
