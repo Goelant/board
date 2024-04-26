@@ -28,4 +28,4 @@ jobs:
     - run: rm -rf node_modules/
     - run: npm i
     - run: npm run build --if-present
-    - run: cp -r /home/user/git-runners/actions-runner/_work/board/board/dist/. /var/www/pyratt.sh #copies contents of the build/dist folder to the '/var/www/web-app-name' folder where it will be served up
+    - run: cp -r /home/debian/git-runners/_work/board/board/dist/. /var/www/pyratt.sh #copies contents of the build/dist folder to the '/var/www/web-app-name' folder where it will be served up
